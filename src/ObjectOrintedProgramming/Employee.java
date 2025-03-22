@@ -1,16 +1,10 @@
 package ObjectOrintedProgramming;
 public class Employee {
-	String name;
-	int salary;
-	String phnumber;
-	Employee(String name, int salary, String phnumber) {
-		this.name=name;
-		this.salary=salary;
-		this.phnumber=phnumber;
+	public static void main(String[] args) {
+		Employee e1=new Employee();
+		Employee e2=e1;
+		System.out.println(e1);
+		System.out.println(e2);
 	}
-	public void display() {
-		System.out.println(name);
-		System.out.println(salary);
-		System.out.println(phnumber);
 	}
-}
+
