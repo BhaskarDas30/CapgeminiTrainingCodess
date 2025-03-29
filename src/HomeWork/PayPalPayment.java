@@ -1,3 +1,4 @@
+package HomeWork;
 public class PayPalPayment extends Payment{
     double discount;
     double finalAmt;
@@ -14,7 +15,14 @@ public class PayPalPayment extends Payment{
     }
     @Override
     public double processPayment() {
+    	System.out.println("Processing Credit Card Payment......");
+        System.out.println("Transaction ID : "+getTransactionId());
+        System.out.println("Original Amount : "+getAmount());
+        System.out.println("Discount Applied : "+discount);
+        System.out.println("Transaction Fees : "+transactionfee);
         finalAmt=(getAmount()-discount) + transactionfee;
+        System.out.println("Final Payable Amount : "+transactionfee);
+        System.out.println("PayPal Payment Successful!");
         return finalAmt;
     }
 }

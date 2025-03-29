@@ -1,3 +1,4 @@
+package HomeWork;
 import java.util.Scanner;
 public class PaymentDriver {
     public static void main(String[] args) {
@@ -13,29 +14,35 @@ public class PaymentDriver {
         switch (ch) {
             case 1: {
                 p = new CreditCardPayment(amount, transactionid);
-                System.out.println("Processing Credit Card Payment......");
-                System.out.println("Transaction ID : "+p.getTransactionId());
-                System.out.println("Original Amount : "+p.getAmount());
-                System.out.println("Discount Applied : "+((CreditCardPayment)p).discount);
-                System.out.println("Transaction Fees : "+((CreditCardPayment)p).transactionfee);
-                System.out.println("Final Payable Amount : "+p.processPayment());
-                System.out.println("Credit Card Payment Successful!");
+//                System.out.println("Processing Credit Card Payment......");
+//                System.out.println("Transaction ID : "+p.getTransactionId());
+//                System.out.println("Original Amount : "+p.getAmount());
+//                System.out.println("Discount Applied : "+((CreditCardPayment)p).discount);
+//                System.out.println("Transaction Fees : "+((CreditCardPayment)p).transactionfee);
+//                System.out.println("Final Payable Amount : "+p.processPayment());
+//                System.out.println("Credit Card Payment Successful!");
                 break;
             }
             case 2: {
                 p = new PayPalPayment(amount, transactionid);
-                System.out.println("Processing Credit Card Payment......");
-                System.out.println("Transaction ID : "+p.getTransactionId());
-                System.out.println("Original Amount : "+p.getAmount());
-                System.out.println("Discount Applied : "+((PayPalPayment)p).discount);
-                System.out.println("Transaction Fees : "+((PayPalPayment)p).transactionfee);
-                System.out.println("Final Payable Amount : "+p.processPayment());
-                System.out.println("PayPal Payment Successful!");
+//                System.out.println("Processing Credit Card Payment......");
+//                System.out.println("Transaction ID : "+p.getTransactionId());
+//                System.out.println("Original Amount : "+p.getAmount());
+//                System.out.println("Discount Applied : "+((PayPalPayment)p).discount);
+//                System.out.println("Transaction Fees : "+((PayPalPayment)p).transactionfee);
+//                System.out.println("Final Payable Amount : "+p.processPayment());
+//                System.out.println("PayPal Payment Successful!");
                 break;
             }
             default : {
                 System.out.println("Wrong Choice!");
             }
+        }
+        if(p instanceof CreditCardPayment) {
+        	((CreditCardPayment)p).processPayment();
+        }
+        else if(p instanceof PayPalPayment) {
+        	((PayPalPayment)p).processPayment();
         }
         sc.close();
     }
