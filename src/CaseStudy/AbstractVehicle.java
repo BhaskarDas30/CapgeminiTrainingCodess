@@ -4,7 +4,6 @@ abstract public class AbstractVehicle implements Vehicle {
 	protected String name;
 	protected int speed;
 	public AbstractVehicle(String name, int speed) {
-		// TODO Auto-generated constructor stub
 		this.name=name;
 		this.speed=speed;
 	}
@@ -23,6 +22,5 @@ abstract public class AbstractVehicle implements Vehicle {
 	public void displaydetails() {
 		System.out.println("Name : "+name);
 		System.out.println("Speed : "+speed);
-	}
-	
+	}	
 }
