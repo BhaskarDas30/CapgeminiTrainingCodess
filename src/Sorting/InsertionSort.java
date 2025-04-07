@@ -14,5 +14,4 @@ public class InsertionSort {
 		}
 		System.out.println(Arrays.toString(arr));
 	}
-
 }
