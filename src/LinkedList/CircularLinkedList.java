@@ -1,6 +1,6 @@
 package LinkedList;
 
-public class SinglyLinkedList {
+public class CircularLinkedList {
 	private Node head;
 	private Node tail;
 	private int size=0;
@@ -14,35 +14,34 @@ public class SinglyLinkedList {
 	public boolean isEmpty() {
 		return (head==null && tail==null);
 	}
-//	time complexity - O(1)
 	public boolean append(int value) {
 		Node node=new Node(value);
 		if(isEmpty()) {
 			head=node;
 			tail=node;
-		}
-		else {
-			tail.next=node;			
-			tail=node;
+			tail.next=head;
+		} else {
+			tail.next=node;
+			tail=tail.next;
+			tail.next=head;
 		}
 		size++;
 		return true;
 	}
-//	time complexity - O(1)
 	public boolean prepend(int value) {
 		Node node=new Node(value);
 		if(isEmpty()) {
 			head=node;
 			tail=node;
-		}
-		else {
+			tail.next=head;
+		} else {
 			node.next=head;
 			head=node;
+			tail.next=head;
 		}
 		size++;
 		return true;
 	}
-//	time complexity - O(n)
 	public boolean insertAtIndex(int value, int index) {
 		if(index<=0) {
 			return prepend(value);
@@ -61,11 +60,10 @@ public class SinglyLinkedList {
 			}
 			prev.next=node;
 			node.next=temp;
-			size++;
-			return true;
 		}
+		size++;
+		return true;
 	}
-//	time complexity - O(1)
 	public boolean deleteAtFirst() {
 		if(isEmpty()) {
 			return false;
@@ -74,11 +72,11 @@ public class SinglyLinkedList {
 			tail=null;
 		} else {
 			head=head.next;
+			tail.next=head;
 		}
 		size--;
 		return true;
 	}
-//	time complexity - O(1)
 	public boolean deleteAtLast() {
 		if(isEmpty()) {
 			return false;
@@ -91,18 +89,17 @@ public class SinglyLinkedList {
 				temp=temp.next;
 			}
 			tail=temp;
-			tail.next=null;
+			tail.next=head;
 		}
 		size--;
 		return true;
 	}
-//	time complexity - O(n)
 	public boolean deleteAtIndex(int index) {
 		if(isEmpty()) {
 			return false;
 		} else if(head==tail) {
 			head = null;
-			tail=null;
+			tail = null;
 		} else {
 			Node temp=head;
 			int i=0;
@@ -115,8 +112,17 @@ public class SinglyLinkedList {
 		size--;
 		return true;
 	}
-	public int getSize() {
-		return size;
+	public int search(int value) {
+		Node temp=head;
+		int i=0;
+		do {
+			if(temp.value == value) {
+				return i;
+			}
+			temp=temp.next;
+			i++;
+		} while(temp!=head);
+		return -1;
 	}
 	public boolean update(int value, int index) {
 		Node temp=head;
@@ -128,47 +134,17 @@ public class SinglyLinkedList {
 		temp.value=value;
 		return true;
 	}
-	public boolean reverse() {
-		if(isEmpty()) {
-			return false;
-		} else {
-			Node prev=null;
-			Node next=null;
-			Node current=head;
-			tail=head;
-			while(current != null) {
-				next=current.next;
-				current.next=prev;
-				prev=current;
-				current=next;
-			}
-			head=prev;
-			display();
-		}
-		return true;
-	}
-//	time complexity - O(n)
-	public int search(int value) {
-		Node temp=head;
-		int i=0;
-		while(temp!=null) {
-			if(temp.value == value) {
-				return i;
-			}
-			temp=temp.next;
-			i++;
-		}
-		return -1;
-	}
-//	time complexity - O(n)
 	public void display() {
+		if(isEmpty()) 
+			return;
 		Node temp=head;
 		StringBuffer sb= new StringBuffer("[ ");
-		while(temp != null) {
+		do {
 			sb.append(temp == tail ? temp.value : temp.value + " -> ");
 			temp=temp.next;
-		}
-		sb.append(" ]");
+		} while(temp != head);
+//		sb.append(temp.value);
+		sb.append(" ↩ ]");
 		System.out.println(sb);
 	}
 }
