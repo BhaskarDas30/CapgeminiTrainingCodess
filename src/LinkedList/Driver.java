@@ -7,7 +7,7 @@ public class Driver {
 //		list.append(20);
 //		list.append(30);
 //		System.out.println(list.search(50));
-		DoublyLinkedList list=new DoublyLinkedList();
+		SinglyLinkedList list=new SinglyLinkedList();
 		list.append(10);
 		list.append(20);
 		list.append(30);
@@ -20,6 +20,7 @@ public class Driver {
 		list.display();
 //		System.out.println(list.search(30));
 //		list.reverse();
-		list.reversedisplay();
+//		list.reversedisplay();
+		System.out.println(list.get(2));
 }
 }

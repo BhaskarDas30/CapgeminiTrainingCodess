@@ -78,7 +78,7 @@ public class SinglyLinkedList {
 		size--;
 		return true;
 	}
-//	time complexity - O(1)
+//	time complexity - O(n)
 	public boolean deleteAtLast() {
 		if(isEmpty()) {
 			return false;
@@ -159,6 +159,19 @@ public class SinglyLinkedList {
 			i++;
 		}
 		return -1;
+	}
+	public int get(int index) {
+		if(index<0 || index>=size) {
+			throw new IndexOutOfBoundsException();
+		} else {
+			Node temp=head;
+			int i=0;
+			while(i!=index) {
+				temp=temp.next;
+				i++;
+			}
+			return temp.value;
+		}
 	}
 //	time complexity - O(n)
 	public void display() {
