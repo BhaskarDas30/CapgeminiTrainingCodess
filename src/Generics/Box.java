@@ -21,4 +21,8 @@ public class Box<T> {
 //		Box<Integer> b1=new Box<Integer>(10, 20);
 //		System.out.println(b1.num1+b1.num2);
 //	}
+	public static void main(String[] args) {
+		Box<Float> b=new Box<>(2.56f);
+		System.out.println(b.getValue());
+	}
 }
