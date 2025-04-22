@@ -20,4 +20,3 @@ public class ATM {
 		withdraw(money, pin);
 	}
 }
- 
