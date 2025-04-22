@@ -4,9 +4,11 @@ import java.util.*;
 
 public class FlightsScheduleManager {
 	List<Flight> flights=new ArrayList<>();
+	
 	public void addFlights(Flight flight) {
 		flights.add(flight);
 	}
+	
 	public boolean bookFlight(int id, int count) {
 		for(Flight f : flights) {
 			if(id==f.getFlightId()) {
@@ -18,6 +20,7 @@ public class FlightsScheduleManager {
 		}
 		return false;
 	}
+	
 	public void getAvailableFlight(String start, String end) {
 		boolean available=false;
 		for(Flight f : flights) {
@@ -27,7 +30,7 @@ public class FlightsScheduleManager {
 			}
 		}
 		if(available==false) {
-			System.out.println("No Flights Available");
+			System.out.println("\nNo Flights Available");
 		}
 	}
 }

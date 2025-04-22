@@ -16,10 +16,10 @@ public class DomesticFlight extends Flight{
 	@Override
 	public void bookSeats(int n) {
 		if(n<=getAvailableSeats()) {
-			System.out.println("Seats are Booked");
+			System.out.println("\nSeats are Booked");
 			setAvailableSeats(getAvailableSeats()-n);
 		} else {
-			System.out.println("Seats Cannot be Booked");
+			System.out.println("\nSeats Cannot be Booked");
 		}
 	}
 	@Override 
@@ -31,7 +31,8 @@ public class DomesticFlight extends Flight{
 	}
 	@Override
 	public void getFlightInfo() {
-		System.out.println("Flight ID : "+getFlightId());
+		System.out.println("\nFlight Details - ");
+		System.out.println("\nFlight ID : "+getFlightId());
 		System.out.println("State Code : "+getStateCode());
 		System.out.println("Departure Time : "+getDepartureTime());
 		System.out.println("Arrival Time : "+getArrivalTime());

@@ -7,7 +7,7 @@ public class Driver {
 		Scanner sc=new Scanner(System.in);
 		FlightsScheduleManager manager=new FlightsScheduleManager();
 		while(true) {
-			System.out.println("Enter 1 to Add Flight");
+			System.out.println("\nEnter 1 to Add Flight");
 			System.out.println("Enter 2 to Book Flight");
 			System.out.println("Enter 3 to Get Available Flight");
 			System.out.println("Enter 4 to Add Flight");
@@ -41,9 +41,9 @@ public class Driver {
 				System.out.println("Enter the Number of Seats :");
 				int count=sc.nextInt();
 				if(manager.bookFlight(id, count)) {
-					System.out.println("Flight Booked");
+					System.out.println("\nFlight Booked");
 				} else {
-					System.out.println("Flight Cannot be Booked");
+					System.out.println("\nFlight Cannot be Booked");
 				}
 				break;
 			}
